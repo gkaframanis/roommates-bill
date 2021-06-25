@@ -1,4 +1,5 @@
 from bill import Bill
+from filesharer import FileSharer
 from roommate import Roommate
 from reports import PdfReport
 
@@ -34,6 +35,9 @@ if __name__ == '__main__':
         answer = input("Type 'yes' if you have to add another flatmate or if there isn't another one type 'no': ")
 
     *roommates, = roommates_list
-    pdfReport = PdfReport(filename=f"bill_{bill.period}.pdf")
-    pdfReport.generate(bill, *roommates)
+    pdf_report = PdfReport(filename=f"bill_{bill.period}.pdf")
+    pdf_report.generate(bill, *roommates)
+
+    file_sharer = FileSharer(filepath=pdf_report.filename)
+    print(file_sharer.share())
     exit(0)

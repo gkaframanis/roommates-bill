@@ -39,5 +39,6 @@ if __name__ == '__main__':
     pdf_report.generate(bill, *roommates)
 
     file_sharer = FileSharer(filepath=pdf_report.filename)
+    # Prints the url of the uploaded file.
     print(file_sharer.share())
     exit(0)
